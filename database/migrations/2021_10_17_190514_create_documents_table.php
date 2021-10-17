@@ -17,6 +17,7 @@ class CreateDocumentsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('person_id');
+            $table->string('name', 250);
             $table->string('path', 250);
             $table->string('to', 250);
 

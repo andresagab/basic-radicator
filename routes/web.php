@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/documents', function () {
-    return view();
-});
+Route::get('/documents', \App\Http\Livewire\Document\Documents::class)->name('documents');
