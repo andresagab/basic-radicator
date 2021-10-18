@@ -60,6 +60,7 @@
                             <td class="px-2">
                                 <div class="flex flex-row items-center justify-center space-x-2">
                                     <a href="{{ \Illuminate\Support\Facades\Storage::url($item->path) }}" target="_blank" title="Abrir Archivo" class="material-icons text-red-700 hover:bg-red-700 hover:text-white hover:shadow transition duration-300 ease select-none rounded-full p-1" style="font-size: 18px;">picture_as_pdf</a>
+                                    <button wire:click="openDelete({{ $item }})" wire:loading.attr="disabled" title="Eliminar Registro" class="material-icons text-red-500 hover:bg-red-500 hover:text-white hover:shadow transition duration-300 ease select-none rounded-full p-1" style="font-size: 18px;">delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -77,5 +78,6 @@
     </div>
 
     <livewire:document.document-form/>
+    <livewire:document.document-delete/>
 
 </div>

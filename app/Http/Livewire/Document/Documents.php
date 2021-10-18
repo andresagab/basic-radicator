@@ -6,6 +6,7 @@ use App\Models\Document;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
+use PhpParser\Comment\Doc;
 
 class Documents extends Component
 {
@@ -65,6 +66,11 @@ class Documents extends Component
     public function openForm() : void
     {
         $this->emitTo('document.document-form', 'openForm');
+    }
+
+    public function openDelete(Document $document) : void
+    {
+        $this->emitTo('document.document-delete', 'openModal', $document);
     }
 
     /**

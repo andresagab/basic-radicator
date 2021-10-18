@@ -13,8 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
-Route::get('/documents', \App\Http\Livewire\Document\Documents::class)->name('documents');
+Route::get('/', \App\Http\Livewire\Document\Documents::class)->name('home');
