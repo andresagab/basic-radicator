@@ -12,7 +12,7 @@ class Document extends Model
 
     // properties
 
-    protected $fillable = ['person_id', 'path', 'to'];
+    protected $fillable = ['person_id', 'name', 'path', 'to'];
 
     // eloquent
 
@@ -26,5 +26,5 @@ class Document extends Model
     }
 
     // methods
-    
+
 }

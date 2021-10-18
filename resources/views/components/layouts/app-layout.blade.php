@@ -6,11 +6,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- styles --}}
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
 
     {{-- scripts --}}
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -30,6 +32,29 @@
 @stack('modals')
 
 @livewireScripts
+
+<script>
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    Livewire.on('toast', function (title, icon) {
+        Toast.fire({
+            title: title,
+            icon: icon,
+        });
+    });
+
+</script>
 
 </body>
 </html>
