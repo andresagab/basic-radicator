@@ -136,17 +136,7 @@
                             </div>
 
                             {{-- file --}}
-                            <div class="flex flex-col space-y-1 items-start justify-start"
-                                 x-data="{ isUploading: false, progress: 0 }"
-
-                                 x-on:livewire-upload-start="isUploading = true"
-
-                                 x-on:livewire-upload-finish="isUploading = false"
-
-                                 x-on:livewire-upload-error="isUploading = false"
-
-                                 x-on:livewire-upload-progress="progress = $event.detail.progress"
-                            >
+                            <div class="flex flex-col space-y-1 items-start justify-start">
 
                                 {!! Form::label('file', '* Remitido a:', ['class' => 'font-normal text-sm text-gray-900']) !!}
                                 <input wire:model="file" id="file" name="file" type="file" accept=".pdf" required class="font-normal text-gray-700">
@@ -154,13 +144,6 @@
                                 @error('file')
                                 <span class="font-light text-xs text-red-500 italic">{{ $message }}</span>
                                 @enderror
-
-                                {{-- progress bar --}}
-                                <div x-show="isUploading">
-
-                                    <progress max="100" x-bind:value="progress" class="text-white rounded-full"></progress>
-
-                                </div>
 
                                 {{-- loading state --}}
                                 <div wire:loading wire:target="file" class="font-normal text-sm text-blue-700 animate-pulse">Cargando...</div>

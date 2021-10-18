@@ -47,6 +47,17 @@
         }
     });
 
+    /**
+     * Alert with modal dialog to confirm or show message
+     */
+    Livewire.on('alert', function (title, text, icon) {
+        Swal.fire(
+            title,
+            text,
+            icon
+        )
+    });
+
     Livewire.on('toast', function (title, icon) {
         Toast.fire({
             title: title,

@@ -118,7 +118,7 @@ class DocumentForm extends Component
 
                 if ($this->document->save()) {
 
-                    $this->emit('toast', 'Datos guardados exitosamente', 'success');
+                    $this->emit('alert', 'Documento Guardado', 'Número de radicado: ' . $this->document->id, 'success');
                     $this->unselectPerson();
                     $this->document = new Document();
                     $this->emitUp('loadDocuments');
